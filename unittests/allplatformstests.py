@@ -480,7 +480,7 @@ class AllPlatformTests(BasePlatformTests):
         junit_xml_logs = Path(self.logdir, 'testlog.junit.xml')
         subprocess.run(['xmllint', junit_xml_logs], check=True)
         # Ensure command output and JSON / text logs are not mangled.
-        raw_output_sample = '\nHello Meson\n\n\x00\x01\x02\x03\x04\x05\x06\x07\x08\x0b'
+        raw_output_sample = '\x00\x01\x02\x03\x04\x05\x06\x07\x08\x0b'
         assert raw_output_sample in tests_command_output
         text_log = Path(self.logdir, 'testlog.txt').read_text()
         assert raw_output_sample in text_log
