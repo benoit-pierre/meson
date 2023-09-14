@@ -133,6 +133,7 @@ class InstalledFile:
     def __init__(self, raw: T.Dict[str, str]):
         self.path = raw['file']
         self.typ = raw['type']
+        self.extension = raw.get('extension', None)
         self.platform = raw.get('platform', None)
         self.language = raw.get('language', 'c')  # type: str
 
