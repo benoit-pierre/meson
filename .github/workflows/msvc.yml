@@ -1,0 +1,47 @@
+name: msvc
+
+concurrency:
+  group: msvc-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    paths:
+      - "mesonbuild/**"
+      - "test cases/**"
+      - "unittests/**"
+      - ".github/workflows/msvc.yml"
+      - "run_unittests.py"
+  pull_request:
+    paths:
+      - "mesonbuild/**"
+      - "test cases/**"
+      - "unittests/**"
+      - ".github/workflows/msvc.yml"
+      - "run_unittests.py"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: windows-latest
+    name: ${{ matrix.NAME }}
+
+    env:
+      MESON_CI_JOBNAME: msvc
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+
+      - uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Install dependencies
+        run: |
+          python -m pip --disable-pip-version-check install gcovr pefile pytest pytest-subtests pytest-xdist coverage
+
+      - name: Run Tests
+        run: |
+          python run_project_tests.py --backend=ninja --failfast --only "platform-windows"
