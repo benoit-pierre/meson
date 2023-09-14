@@ -11,7 +11,7 @@ on:
       - "test cases/**"
       - "unittests/**"
       - ".github/workflows/msvc.yml"
-      - "run_tests.py"
+      - "run_project_tests.py"
 
 permissions:
   contents: read
