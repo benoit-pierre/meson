@@ -37,4 +37,4 @@ jobs:
 
       - name: Run Tests
         run: |
-          python run_project_tests.py --backend=ninja --only "platform-windows/22 pdb collisions"
+          python run_project_tests.py --backend=ninja --only "platform-windows"
