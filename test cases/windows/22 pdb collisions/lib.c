@@ -1,3 +1,3 @@
-int foobar(void) {
+int libfunc(void) {
     return 42;
 }
