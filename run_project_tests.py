@@ -144,6 +144,7 @@ class InstalledFile:
             self.version = []
 
     def get_path(self, compiler: str, env: environment.Environment) -> T.Optional[Path]:
+        print('get_path', self.path, selp.typ)
         p = Path(self.path)
         canonical_compiler = compiler
         if ((compiler in ['clang-cl', 'intel-cl']) or
@@ -234,7 +235,8 @@ class InstalledFile:
         elif self.typ == 'pdb':
             if self.version:
                 p = p.with_name('{}-{}'.format(p.name, self.version[0]))
-            return p.with_suffix('.pdb') if has_pdb else None
+            p = p.with_suffix('.pdb') if has_pdb else None
+            print(p)
         elif self.typ in {'implib', 'implibempty'}:
             if env.machines.host.is_windows() and canonical_compiler == 'msvc':
                 # only MSVC doesn't generate empty implibs
