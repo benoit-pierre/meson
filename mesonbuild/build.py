@@ -2296,7 +2296,8 @@ class SharedLibrary(BuildTarget):
         # only replace the first entry
         self.outputs[0] = self.filename
         if create_debug_file:
-            self.debug_filename = os.path.splitext(self.filename)[0] + '.pdb'
+            print('create_debug_file', self.filename + '.pdb')
+            self.debug_filename = self.filename + '.pdb'
 
     def process_kwargs(self, kwargs):
         super().process_kwargs(kwargs)
