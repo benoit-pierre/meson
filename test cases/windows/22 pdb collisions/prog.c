@@ -1,3 +1,5 @@
+int libfunc(void);
+
 int main(void) {
-    return 42;
+    return libfunc();
 }
