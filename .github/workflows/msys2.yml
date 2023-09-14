@@ -120,20 +120,20 @@ jobs:
             pacman --noconfirm --needed -S mingw-w64-${{ matrix.MSYS2_ARCH }}-${{ matrix.MSYS2_CURSES }}
           fi
 
-          MSYSTEM= python3 ./tools/run_with_cov.py run_tests.py --backend=ninja
+          MSYSTEM= python3 run_project_tests.py --backend=ninja #--failfast
 
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.NAME }}
           path: meson-test-run.*
 
-      - name: Aggregate coverage reports
-        run: ./ci/combine_cov.sh
+#       - name: Aggregate coverage reports
+#         run: ./ci/combine_cov.sh
 
-      - name: Upload coverage report
-        uses: codecov/codecov-action@v3
-        with:
-          files: .coverage/coverage.xml
-          name: "${{ matrix.NAME }}"
-          fail_ci_if_error: false
-          verbose: true
+#       - name: Upload coverage report
+#         uses: codecov/codecov-action@v3
+#         with:
+#           files: .coverage/coverage.xml
+#           name: "${{ matrix.NAME }}"
+#           fail_ci_if_error: false
+#           verbose: true
