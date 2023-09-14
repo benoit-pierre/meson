@@ -133,7 +133,6 @@ class InstalledFile:
     def __init__(self, raw: T.Dict[str, str]):
         self.path = raw['file']
         self.typ = raw['type']
-        self.extension = raw.get('extension', None)
         self.platform = raw.get('platform', None)
         self.language = raw.get('language', 'c')  # type: str
 
@@ -236,12 +235,7 @@ class InstalledFile:
         elif self.typ == 'pdb':
             if not has_pdb:
                 return None
-            if self.version:
-                p = p.with_name('{}-{}'.format(p.name, self.version[0]))
-            if self.extension:
-                p = p.with_name('.'.join((p.name, self.extension)))
-            p = p.with_name(('.'.join((p.name, 'pdb'))))
-            print('get_path', p)
+            p = p.with_name('.'.join((p.name, 'pdb')))
         elif self.typ in {'implib', 'implibempty'}:
             if env.machines.host.is_windows() and canonical_compiler == 'msvc':
                 # only MSVC doesn't generate empty implibs

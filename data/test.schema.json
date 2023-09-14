@@ -46,9 +46,6 @@
               "!cygwin"
             ]
           },
-          "extension": {
-            "type": "string"
-          },
           "version": {
             "type": "string"
           },

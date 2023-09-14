@@ -1,9 +1,8 @@
 {
   "installed": [
-    {"type": "file", "platform": "msvc", "file": "usr/bin/foobar.exe"},
     {"type": "file", "platform": "msvc", "file": "usr/bin/foobar.dll"},
-    {"type": "file", "platform": "msvc", "file": "usr/lib/foobar.lib"},
-    {"type": "pdb", "file": "usr/bin/foobar", "extension": "exe"},
-    {"type": "pdb", "file": "usr/bin/foobar", "extension": "dll"}
+    {"type": "file", "platform": "msvc", "file": "usr/bin/foobar.exe"},
+    {"type": "file", "platform": "msvc", "file": "usr/bin/foobar.exe.pdb"},
+    {"type": "file", "platform": "msvc", "file": "usr/lib/foobar.lib"}
   ]
 }
