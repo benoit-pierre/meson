@@ -1978,8 +1978,8 @@ class Executable(BuildTarget):
             and self.environment.coredata.get_option(OptionKey("debug"))
         )
         if create_debug_file:
-            print('create_debug_file', self.name + '.pdb', self.filename + '.pdb')
-            self.debug_filename = self.name + '.pdb'
+            print('create_debug_file', self.filename + '.pdb')
+            self.debug_filename = self.filename + '.pdb'
 
     def get_default_install_dir(self) -> T.Tuple[str, str]:
         return self.environment.get_bindir(), '{bindir}'
