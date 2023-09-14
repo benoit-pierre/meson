@@ -2,7 +2,7 @@
   "installed": [
     {"type": "file", "file": "usr/bin/foobar.exe"},
     {"type": "file", "platform": "gcc", "file": "usr/bin/libfoobar.dll"},
-    {"type": "file", "platform": "gcc", "file": "usr/bin/libfoobar.dll.a"},
+    {"type": "file", "platform": "gcc", "file": "usr/lib/libfoobar.dll.a"},
     {"type": "file", "platform": "msvc", "file": "usr/bin/foobar.dll"},
     {"type": "file", "platform": "msvc", "file": "usr/bin/foobar.dll.pdb"},
     {"type": "file", "platform": "msvc", "file": "usr/bin/foobar.exe.pdb"},
