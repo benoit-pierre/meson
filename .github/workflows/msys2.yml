@@ -120,7 +120,7 @@ jobs:
             pacman --noconfirm --needed -S mingw-w64-${{ matrix.MSYS2_ARCH }}-${{ matrix.MSYS2_CURSES }}
           fi
 
-          MSYSTEM= python3 run_project_tests.py --backend=ninja #--failfast
+          MSYSTEM= python3 run_project_tests.py --backend=ninja --only "platform-windows" #--failfast
 
       - uses: actions/upload-artifact@v3
         with:

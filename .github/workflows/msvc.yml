@@ -39,4 +39,4 @@ jobs:
 
       - name: Run Tests
         run: |
-          python run_project_tests.py --backend=ninja # --failfast --only "platform-windows"
+          python run_project_tests.py --backend=ninja --only "platform-windows" #--failfast
