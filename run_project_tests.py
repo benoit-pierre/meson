@@ -236,7 +236,7 @@ class InstalledFile:
             if self.version:
                 p = p.with_name('{}-{}'.format(p.name, self.version[0]))
             p = p.with_suffix('.pdb') if has_pdb else None
-            print(p)
+            print('get_path', p)
         elif self.typ in {'implib', 'implibempty'}:
             if env.machines.host.is_windows() and canonical_compiler == 'msvc':
                 # only MSVC doesn't generate empty implibs
