@@ -1,0 +1,8 @@
+{
+  "installed": [
+    {"type": "file", "platform": "msvc", "file": "usr/bin/foobar.dll"},
+    {"type": "file", "platform": "msvc", "file": "usr/lib/foobar.exe"},
+    {"type": "pdb", "file": "usr/bin/foobar.dll"},
+    {"type": "pdb", "file": "usr/bin/foobar.exe"}
+  ]
+}
