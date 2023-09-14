@@ -239,7 +239,7 @@ class InstalledFile:
             if self.version:
                 p = p.with_name('{}-{}'.format(p.name, self.version[0]))
             if self.extension:
-                p = p.with_name('.'.join((p.name, p.extension)))
+                p = p.with_name('.'.join((p.name, self.extension)))
             p = p.with_name(('.'.join((p.name, 'pdb'))))
             print('get_path', p)
         elif self.typ in {'implib', 'implibempty'}:
