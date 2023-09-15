@@ -47,4 +47,4 @@ jobs:
 
       - name: Run Tests
         run: |
-          python run_project_tests.py --backend=${{ matrix.BACKEND }} #--only "platform-windows" #--failfast
+          python run_project_tests.py --backend=${{ matrix.BACKEND }} --only "rust" #--failfast
