@@ -47,7 +47,11 @@ jobs:
         run: |
           python -m pip --disable-pip-version-check install gcovr pefile pytest pytest-subtests pytest-xdist coverage
 
-      - name: Run Tests
+      - name: Run Unit Tests
         run: |
-          python run_tests.py --backend=${{ matrix.BACKEND }}
-          # python run_project_tests.py --backend=${{ matrix.BACKEND }} --only "d" #--failfast
+          python run_unittests.py -v --backend=${{ matrix.BACKEND }}
+
+      - name: Run Project Tests
+        if: always()
+        run: |
+          python run_project_tests.py --backend=${{ matrix.BACKEND }} #--only "d" #--failfast
