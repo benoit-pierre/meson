@@ -20,9 +20,17 @@ jobs:
   test:
     runs-on: windows-latest
     name: ${{ matrix.NAME }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - NAME: x64ninja
+            BACKEND: ninja
+          - NAME: x64vs
+            BACKEND: vs
 
     env:
-      MESON_CI_JOBNAME: msvc
+      MESON_CI_JOBNAME: msvc-${{ matrix.NAME }}
 
     steps:
       - uses: actions/checkout@v3
@@ -39,4 +47,4 @@ jobs:
 
       - name: Run Tests
         run: |
-          python run_project_tests.py --backend=ninja #--only "platform-windows" #--failfast
+          python run_project_tests.py --backend=${{ matrix.BACKEND }} --only "platform-windows" #--failfast
