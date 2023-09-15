@@ -1,6 +1,6 @@
 {
   "installed": [
     {"type": "exe", "file": "usr/bin/prog"},
-    {"type": "file", "platform": "msvc", "file": "usr/bin/prog.exe.pdb"}
+    {"type": "pdb", "file": "usr/bin/prog.exe.pdb"}
   ]
 }

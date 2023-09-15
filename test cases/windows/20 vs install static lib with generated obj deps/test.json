@@ -4,7 +4,7 @@
 
     {"type": "shared_lib", "platform": "msvc", "file": "usr/bin/both_lib"},
     {"type": "implib", "platform": "msvc", "file": "usr/lib/both_lib"},
-    {"type": "file", "platform": "msvc", "file": "usr/bin/both_lib.dll.pdb"},
+    {"type": "pdb", "file": "usr/bin/both_lib.dll.pdb"},
 
     {"type": "expr", "platform": "gcc", "file": "usr/lib/?libboth_lib.dll"},
     {"type": "implib", "platform": "gcc", "file": "usr/lib/libboth_lib"}
