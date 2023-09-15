@@ -231,10 +231,11 @@ class InstalledFile:
                 return p.with_suffix('.nef')
             elif env.machines.host.is_windows() or env.machines.host.is_cygwin():
                 return p.with_suffix('.exe')
+        # FIXME: drop `pdb` type once all tests have been amended.
         elif self.typ == 'pdb':
-            if not has_pdb:
-                return None
-            p = p.with_name('.'.join((p.name, 'pdb')))
+            if self.version:
+                p = p.with_name('{}-{}'.format(p.name, self.version[0]))
+            return p.with_suffix('.pdb') if has_pdb else None
         elif self.typ in {'implib', 'implibempty'}:
             if env.machines.host.is_windows() and canonical_compiler == 'msvc':
                 # only MSVC doesn't generate empty implibs
