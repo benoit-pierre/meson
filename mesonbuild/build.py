@@ -1978,7 +1978,6 @@ class Executable(BuildTarget):
             and self.environment.coredata.get_option(OptionKey("debug"))
         )
         if create_debug_file:
-            print('create_debug_file', self.filename + '.pdb')
             self.debug_filename = self.filename + '.pdb'
 
     def get_default_install_dir(self) -> T.Tuple[str, str]:
@@ -2296,7 +2295,6 @@ class SharedLibrary(BuildTarget):
         # only replace the first entry
         self.outputs[0] = self.filename
         if create_debug_file:
-            print('create_debug_file', self.filename + '.pdb')
             self.debug_filename = self.filename + '.pdb'
 
     def process_kwargs(self, kwargs):

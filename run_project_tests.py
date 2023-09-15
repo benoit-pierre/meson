@@ -144,7 +144,6 @@ class InstalledFile:
             self.version = []
 
     def get_path(self, compiler: str, env: environment.Environment) -> T.Optional[Path]:
-        print('get_path', self.path, self.typ)
         p = Path(self.path)
         canonical_compiler = compiler
         if ((compiler in ['clang-cl', 'intel-cl']) or
