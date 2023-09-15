@@ -26,6 +26,8 @@ jobs:
         include:
           - NAME: x64ninja
             BACKEND: ninja
+          - NAME: x64vs2019
+            BACKEND: vs2019
           - NAME: x64vs
             BACKEND: vs
 
@@ -47,4 +49,5 @@ jobs:
 
       - name: Run Tests
         run: |
-          python run_project_tests.py --backend=${{ matrix.BACKEND }} --only "d" #--failfast
+          python run_tests.py --backend=${{ matrix.BACKEND }}
+          # python run_project_tests.py --backend=${{ matrix.BACKEND }} --only "d" #--failfast
